@@ -1,25 +1,28 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { getGifs } from '../helpers/getGifs';
+import { GifGridItem } from './GifGridItem';
 
-export const GifGrid = ({category}) => {
+export const GifGrid = ({ category }) => {
 
-   const getGifs =async ()=>{
-      const url ='https://api.giphy.com/v1/gifs/search?q=goku&limit=10&api_key=R4qK3NSI73RXvjZSdZ8hCDYXSfEq0xSj';
-      const respuesta = await fetch(url);
-      const {data} = await respuesta.json();
+   const [images, setImages] = useState([]);
 
-      const gifs = data.map((img)=>{
-         return {
-            id : img.id,
-            url : img.images?.downsized_medium.url,
-            title : img.title
-         }
-      });
-      console.log(gifs);
-   }
-   getGifs();
+   useEffect( () => {
+      getGifs(category)
+      .then((img)=>{setImages(img)});
+   }, [category]);
+ 
    return (
-      <div>
+
+      <>
          <h3>{category}</h3>
-      </div>
-   )
+         <div className="card-grid">
+            {images.map((img) => {
+               return <GifGridItem
+                  key={img.id}
+                  {...img}
+               />
+            })}
+         </div>
+      </>
+   );
 }
