@@ -4,13 +4,7 @@ import { GifGrid } from './components/GifGrid';
 
 
 export const GifExpertApp = () => {
-   const [categories, setCategories] = useState(['one punch']);
-   // const categories = ['one punch', 'Samuray X', 'goku'];
-   // const handleAdd = () => {
-   //    setCategories([...categories, 'one piece']);
-   // setCategories(['one piece', ...categories]);
-   // setCategories((cats) =>  [...cats, 'one piece'] );
-   //};
+   const [categories, setCategories] = useState(['one piece']);
 
    return (
       <>
@@ -20,9 +14,9 @@ export const GifExpertApp = () => {
          <ol>
             {
                categories.map((cat) => {
-                  return <GifGrid 
-                  key = {cat}
-                  category={cat}>
+                  return <GifGrid
+                     key={cat}
+                     category={cat}>
 
                   </GifGrid>
                })

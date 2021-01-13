@@ -4,14 +4,13 @@ import PropTypes from 'prop-types';
 export const AddCategory = ({ setCategories }) => {
    const [inputValue, setInputValue] = useState("");
    const handleInputChance = (e) => {
-      console.log(e.target.value);
       setInputValue(e.target.value);
    }
    const handleSubmit = (e) => {
       e.preventDefault();
       console.log("submit");
       if (inputValue.trim().length > 2) {
-         setCategories((categorias) => [inputValue,...categorias]);
+         setCategories((categorias) => [inputValue, ...categorias]);
          setInputValue('');
       }
    }
@@ -27,5 +26,5 @@ export const AddCategory = ({ setCategories }) => {
 }
 
 AddCategory.propTypes = {
-   setCategories : PropTypes.func.isRequired
+   setCategories: PropTypes.func.isRequired
 }
