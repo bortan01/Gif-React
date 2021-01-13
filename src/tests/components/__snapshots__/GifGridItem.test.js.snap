@@ -4,7 +4,12 @@ exports[`pruebas en GifGridItem debe de mostrar el componente correctamente  1`]
 <div
   className="card animate__fadeOut"
 >
-  <img />
-  <p />
+  <img
+    alt="Un titulo"
+    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTXlets_YMDLRWRdARL10-uXyzSbK3v7rTgw&usqp=CAU"
+  />
+  <p>
+    Un titulo
+  </p>
 </div>
 `;
